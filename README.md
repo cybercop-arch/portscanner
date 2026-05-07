@@ -158,7 +158,7 @@ Do not scan systems, networks, or infrastructure without proper authorization. U
 ## Author
 
 **Samiksha**  
-Cybersecurity and Digital Forensics Student  
+Cybersecurity and Digital Forensics Graduate  
 Ethical Hacking | Network Security | Penetration Testing
 
 ---
