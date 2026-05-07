@@ -1,99 +1,170 @@
-# 🔎 PortScanner
+# PortScanner
 
-A simple Python-based **TCP port scanner** that scans a target IP for open ports within a given range. This tool helps identify which services are accessible on a machine, useful for penetration testing, network troubleshooting, and ethical hacking practices.
-
----
-
-## 📦 Features
-
-- 🔧 Scans TCP ports (default: 21–79)
-- ⚡ Fast connection attempts with timeouts
-- 🧠 Resolves IP from hostname (or accepts IP directly)
-- 🕒 Displays timestamps for scanning session
-- 🔒 Graceful error handling for hostname or connection issues
+A lightweight Python-based TCP port scanning utility designed to identify open ports and accessible network services on target systems. This project demonstrates fundamental concepts of network reconnaissance, service enumeration, and socket programming commonly used in cybersecurity and penetration testing environments.
 
 ---
 
-## 📁 Project Structure
+## Overview
 
-```
+PortScanner performs TCP connection scans across a specified range of ports to determine which services are reachable on a target host. The scanner supports both IP addresses and hostnames and provides fast and reliable results using Python's built-in socket library.
 
+This project is useful for:
+
+- Network Reconnaissance
+- Service Discovery
+- Penetration Testing Practice
+- Cybersecurity Learning
+- Network Troubleshooting
+
+---
+
+## Features
+
+- TCP port scanning functionality
+- Supports hostname and IP-based targets
+- Fast scanning using configurable socket timeouts
+- Automatic DNS resolution
+- Scan timestamp logging
+- Exception and error handling
+- Cross-platform compatibility
+- No third-party dependencies required
+
+---
+
+## Project Structure
+
+```bash
 port-scanner/
 │
-├── port\scanner.py        # The main port scanner script
-├── README.md              # Documentation
-
-````
-
----
-
-## 📋 Requirements
-
-- Python 3.x  
-- Works on Linux, Windows, and macOS
-- No third-party libraries needed
+├── port_scanner.py      # Main scanning script
+├── README.md            # Project documentation
+```
 
 ---
 
-## 🚀 Usage
+## Technologies Used
 
-### 🧪 Run the scanner
+| Technology | Purpose |
+|------------|---------|
+| Python 3 | Core Programming Language |
+| Socket Module | TCP Network Communication |
+| Datetime Module | Timestamp Logging |
+
+---
+
+## Requirements
+
+- Python 3.x
+- Linux, Windows, or macOS
+- No external libraries required
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/port-scanner.git
+cd port-scanner
+```
+
+---
+
+## Usage
+
+Run the scanner:
 
 ```bash
 python3 port_scanner.py
-````
-
-You'll be prompted to enter a target IP or hostname:
-
-```
-enter the target ip address: scanme.nmap.org
 ```
 
-### 🖥 Example Output
+Enter the target hostname or IP address when prompted:
 
-```
-scanning the target scanme.nmap.org
-time started:  2025-05-21 14:12:33.785509
-Port 22: open
-Port 80: open
+```bash
+Enter target IP or hostname: scanme.nmap.org
 ```
 
 ---
 
-## 🧠 How It Works
+## Example Output
 
-* `socket.gethostbyname(target)`: Resolves hostname to IP 
-* Connects to each port in the specified range
-* Uses `connect_ex()` to test if the port is open
-* Prints out the open ports only
+```bash
+[+] Scanning Target: scanme.nmap.org
+[+] Scan Started: 2025-05-21 14:12:33
+
+[OPEN] Port 22
+[OPEN] Port 80
+
+[+] Scan Completed
+```
 
 ---
 
-## 📌 Notes
+## How It Works
 
-* You can change the port range:
+The scanner performs the following steps:
+
+1. Resolves the hostname into an IP address using:
+
+```python
+socket.gethostbyname(target)
+```
+
+2. Iterates through a specified port range
+
+3. Attempts TCP connections using:
+
+```python
+socket.connect_ex()
+```
+
+4. Displays ports that respond successfully
+
+---
+
+## Customization
+
+Modify the scanning range inside the script:
 
 ```python
 for port in range(1, 1025):
 ```
 
-* Scanning too many ports on external servers may get blocked or flagged. Use responsibly and only on systems you own or have permission to test.
+You can increase or decrease the range depending on the required scan scope.
 
 ---
 
-## 🛡 Disclaimer
+## Learning Objectives
 
-This tool is for **educational and ethical hacking purposes only**. Do not scan systems you do not own or have authorization to test.
+This project helps demonstrate:
+
+- TCP/IP Networking Fundamentals
+- Socket Programming in Python
+- Basic Reconnaissance Techniques
+- Service Enumeration
+- Ethical Security Testing Concepts
 
 ---
 
-## 🙋‍♀️ Author
+## Legal Disclaimer
 
-**Samiksha**
-Cybersecurity & Forensics Student | Developer | Ethical Hacking Enthusiast
+This tool is intended strictly for educational purposes and authorized security testing only.
+
+Do not scan systems, networks, or infrastructure without proper authorization. Unauthorized scanning may violate legal regulations and organizational security policies.
 
 ---
 
-## 🤝 Contributing
+## Author
 
-Feel free to fork, suggest enhancements, or submit a pull request 🚀
+**Samiksha**  
+Cybersecurity and Digital Forensics Student  
+Ethical Hacking | Network Security | Penetration Testing
+
+---
+
+## Contributing
+
+Contributions, improvements, and feature suggestions are welcome.
+
+Fork the repository, submit pull requests, or open issues for enhancements and fixes.
